@@ -1,0 +1,95 @@
+<view class="result-page" wx:if="{{hasResult && result}}">
+  <image class="kitchen-bg" src="{{result.kitchen}}" mode="aspectFill"></image>
+  <view class="bg-shade"></view>
+
+  <view class="container result-content">
+    <view class="hero-glass">
+      <view class="result-badge">你的料理人格</view>
+      <view class="result-code">{{result.code}}</view>
+      <view class="result-name">{{result.name}}</view>
+      <view class="result-en">{{result.enName}}</view>
+
+      <view class="hero-char-frame">
+        <view class="char-halo"></view>
+        <image class="hero-img" src="{{result.image}}" mode="aspectFit"></image>
+      </view>
+      <view class="hero-animal">{{result.animal}}</view>
+    </view>
+
+    <view class="card quote-card glass-card">
+      <view class="card-head"><text class="card-emoji">💬</text><text class="card-head-title">人格小剧场</text></view>
+      <view class="quote-mark">“</view>
+      <view class="paragraph">{{result.comment}}</view>
+      <view class="recipe-strip">
+        <text class="recipe-emoji">🍲</text>
+        <text class="recipe-text">专属拿手菜：{{result.recipe}}</text>
+      </view>
+    </view>
+
+    <view class="tag-board">
+      <block wx:for="{{result.tags}}" wx:key="index">
+        <text class="big-tag">#{{item}}</text>
+      </block>
+    </view>
+
+    <view class="card dim-card glass-card">
+      <view class="section-title">🧬 四维料理基因</view>
+      <view class="dim-grid">
+        <block wx:for="{{dimensions}}" wx:key="name">
+          <view class="dim-tile">
+            <view class="dim-key-badge">{{item.finalKey}}</view>
+            <view class="dim-name">{{item.name}}</view>
+            <view class="dim-score">{{item.leftScore}} : {{item.rightScore}}</view>
+            <view class="dim-bar">
+              <view class="dim-left" style="{{item.barStyle}}"></view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="relation-board">
+      <view class="relation-title">🧑‍🍳 厨房关系图</view>
+      <view class="relation-row">
+        <view class="relation-card glass-card" wx:if="{{partnerResult}}">
+          <image class="rel-img" src="{{partnerResult.image}}" mode="aspectFit"></image>
+          <view class="rel-tag rel-tag--good">天生拍档</view>
+          <view class="rel-name">{{partnerResult.name}}</view>
+          <view class="rel-code">{{result.partner}}</view>
+        </view>
+        <view class="rel-link">♥</view>
+        <view class="relation-card glass-card" wx:if="{{counterResult}}">
+          <image class="rel-img" src="{{counterResult.image}}" mode="aspectFit"></image>
+          <view class="rel-tag rel-tag--cold">厨房克星</view>
+          <view class="rel-name">{{counterResult.name}}</view>
+          <view class="rel-code">{{result.counter}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card poster-card glass-card">
+      <view class="section-title">🖼️ 专属料理海报</view>
+      <view class="poster-sub">厨房场景 + 透明角色合成，保存相册分享好友</view>
+      <view class="poster-btns">
+        <view class="btn btn-primary poster-btn" bindtap="savePoster">保存海报到相册</view>
+        <view class="btn btn-secondary poster-btn" bindtap="previewPoster">预览海报</view>
+      </view>
+      <canvas type="2d" id="posterCanvas" class="poster-canvas"></canvas>
+    </view>
+
+    <view class="action-col">
+      <view class="btn btn-primary" bindtap="restartTest">再测一次</view>
+      <view class="btn btn-secondary mt16" bindtap="goHistory">📖 查看测试历史</view>
+      <view class="btn btn-secondary mt16" bindtap="backHome">返回首页</view>
+    </view>
+  </view>
+</view>
+
+<view class="container" wx:else>
+  <view class="card empty-card">
+    <view class="empty-emoji">🍳</view>
+    <view class="empty-title">还没有测试结果</view>
+    <view class="empty-desc">先去完成 16 道厨房抉择，再来查看你的料理人格吧。</view>
+    <view class="btn btn-primary" bindtap="restartTest">开始测试</view>
+  </view>
+</view>

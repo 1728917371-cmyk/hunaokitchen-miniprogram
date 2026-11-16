@@ -1,0 +1,80 @@
+page {
+  background: linear-gradient(180deg, #f8f1df 0%, #f3e2c4 48%, #ffe2bc 100%);
+  color: #5c3e24;
+  font-family: -apple-system, blinkmacsystemfont, "pingfang sc", "helvetica neue", sans-serif;
+}
+
+.container {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+/* 卡通贴纸白卡：蓝边 + 硬边轻阴影，呼应参考稿 */
+.card {
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 32rpx;
+  padding: 28rpx;
+  border: 2rpx solid #f0d3a8;
+  box-shadow: 8rpx 8rpx 0 rgba(181, 106, 46, 0.12);
+}
+
+.title {
+  font-size: 42rpx;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #b56a2e;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #8a6640;
+  line-height: 1.7;
+}
+
+.btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 999rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 700;
+  border: 2rpx solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f0a35c 0%, #d97634 100%);
+  color: #fff8ec;
+  border-color: #c66428;
+  box-shadow: 0 8rpx 18rpx rgba(181, 106, 46, 0.28);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #b56a2e;
+  border-color: #f0d3a8;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 800;
+  margin-bottom: 20rpx;
+  color: #b56a2e;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10rpx 18rpx;
+  margin-right: 14rpx;
+  margin-bottom: 14rpx;
+  background: #fbe8cb;
+  color: #b56a2e;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  border: 1rpx solid #f3e3c6;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

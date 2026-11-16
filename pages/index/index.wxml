@@ -1,0 +1,67 @@
+<view class="home-page">
+  <image class="kitchen-bg" src="{{homeBg}}" mode="aspectFill"></image>
+  <view class="bg-shade"></view>
+
+  <view class="container home-content">
+    <view class="hero card home-glass">
+      <view class="hero-emoji">🍳</view>
+
+      <view class="featured-stage" wx:if="{{featured}}">
+        <view class="featured-halo"></view>
+        <image class="featured-img" src="{{featured.image}}" mode="aspectFit"></image>
+      </view>
+
+      <view class="hero-badge">胡闹厨房 · 16种料理人格图鉴</view>
+      <view class="title hero-title">测一测你的厨房人格</view>
+      <view class="subtitle hero-desc">
+        警报！订单正在燃烧！不管你是米其林在逃大厨，还是微波炉纵火惯犯——请凭第一直觉，在 3 秒内做出你的厨房抉择，看看你会炸掉厨房，还是封神厨房。
+      </view>
+
+      <view class="hero-deco"><text>🍳</text><text>🧺</text><text>🥖</text><text>🍲</text><text>🔥</text></view>
+
+      <!-- 16位大厨集结 -->
+      <scroll-view class="char-scroll" scroll-x enhanced="{{true}}" show-scrollbar="{{false}}">
+        <view class="char-row">
+          <block wx:for="{{characters}}" wx:key="code">
+            <view class="char-item">
+              <view class="char-thumb">
+                <image class="char-img" src="{{item.image}}" mode="aspectFit"></image>
+              </view>
+              <view class="char-name">{{item.name}}</view>
+              <view class="char-code">{{item.code}}</view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+
+      <view class="intro-grid">
+        <view class="intro-item">
+          <view class="intro-letter">C / A</view>
+          <view class="intro-name">食材搭配</view>
+          <view class="intro-value">经典 × 荒谬</view>
+        </view>
+        <view class="intro-item">
+          <view class="intro-letter">P / M</view>
+          <view class="intro-name">制作工序</view>
+          <view class="intro-value">精密 × 混沌</view>
+        </view>
+        <view class="intro-item">
+          <view class="intro-letter">H / E</view>
+          <view class="intro-name">风味倾向</view>
+          <view class="intro-value">温和 × 极度</view>
+        </view>
+        <view class="intro-item">
+          <view class="intro-letter">S / I</view>
+          <view class="intro-name">动机诉求</view>
+          <view class="intro-value">生存 × 奇想</view>
+        </view>
+      </view>
+      <view class="btn btn-primary start-btn" bindtap="startTest">🍳 开始测试</view>
+      <view class="btn btn-secondary history-btn" bindtap="goHistory">📖 我的测试历史</view>
+    </view>
+
+    <view class="tips card home-glass">
+      <view class="tip-line">🎲 16 题凭直觉二选一，解锁专属料理人格、厨房关系图与合成海报</view>
+    </view>
+  </view>
+</view>

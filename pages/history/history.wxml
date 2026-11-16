@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="stats-card card" wx:if="{{!empty}}">
+    <view class="stats-grid">
+      <view class="stat-item">
+        <view class="stat-num">{{stats.total}}</view>
+        <view class="stat-label">累计测试</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-num">{{topResult.name || '—'}}</view>
+        <view class="stat-label">最常出现的人格（{{stats.topCount}}次）</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{!empty}}">
+    <view class="row section-head">
+      <view class="section-title">测试记录</view>
+      <view class="clear-btn" bindtap="clearAll">清空</view>
+    </view>
+    <view
+      class="history-item"
+      wx:for="{{list}}"
+      wx:key="index"
+      data-index="{{index}}"
+      bindtap="viewResult"
+    >
+      <view class="history-thumb">
+        <image wx:if="{{item.image}}" class="history-avatar" src="{{item.image}}" mode="aspectFit"></image>
+        <view wx:else class="history-code">{{item.code}}</view>
+      </view>
+      <view class="history-body">
+        <view class="history-name">{{item.name}}</view>
+        <view class="history-animal">{{item.animal}}</view>
+        <view class="history-time">{{item.time}}</view>
+      </view>
+      <view class="history-arrow">›</view>
+    </view>
+  </view>
+
+  <view class="card empty-card" wx:else>
+    <view class="empty-emoji">📋</view>
+    <view class="empty-title">还没有测试记录</view>
+    <view class="empty-desc">完成测试后，结果会自动记录在这里。</view>
+    <view class="btn btn-primary" bindtap="startTest">去测一测</view>
+  </view>
+
+  <view class="foot-btn" wx:if="{{!empty}}">
+    <view class="btn btn-secondary" bindtap="backHome">返回首页</view>
+  </view>
+</view>

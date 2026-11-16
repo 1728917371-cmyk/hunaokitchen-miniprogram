@@ -1,0 +1,52 @@
+<view class="quiz-page">
+  <image class="kitchen-bg" src="{{quizBg}}" mode="aspectFill"></image>
+  <view class="bg-shade"></view>
+
+  <view class="container quiz-content">
+    <view class="progress-card card quiz-glass">
+      <view class="row progress-top">
+        <view class="progress-side">第 {{currentIndex + 1}} / {{questions.length}} 题</view>
+        <view class="progress-side">🔥 {{progress}}%</view>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-inner" style="width: {{progress}}%;"></view>
+      </view>
+    </view>
+
+    <view class="question-card card quiz-glass">
+      <view class="part">{{questions[currentIndex].part}}</view>
+      <view class="question-title">{{questions[currentIndex].title}}</view>
+      <view class="options">
+        <block wx:for="{{questions[currentIndex].options}}" wx:key="key">
+          <view
+            class="option {{answers[questions[currentIndex].id] === item.key ? 'option--active' : ''}}"
+            data-key="{{item.key}}"
+            data-qid="{{questions[currentIndex].id}}"
+            bindtap="selectOption"
+          >
+            <view class="option-key">{{item.key}}</view>
+            <view class="option-text">{{item.text}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="action-row">
+      <view class="btn btn-secondary action-btn" bindtap="prevQuestion">上一题</view>
+      <view
+        wx:if="{{currentIndex < questions.length - 1}}"
+        class="btn btn-primary action-btn"
+        bindtap="nextQuestion"
+      >
+        下一题
+      </view>
+      <view
+        wx:else
+        class="btn btn-primary action-btn"
+        bindtap="submitTest"
+      >
+        查看结果
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/test/test",
+    "pages/result/result",
+    "pages/history/history"
+  ],
+  "window": {
+    "navigationBarTitleText": "胡闹厨房料理人格测试",
+    "navigationBarBackgroundColor": "#F3E2C4",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F1DF",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

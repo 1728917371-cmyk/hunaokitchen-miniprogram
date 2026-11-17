@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>胡闹厨房 · 料理人格测试</title>
+<meta name="description" content="16 道厨房里的二选一，测出你在灶台前的动物人格。课程作品：微信原生小程序《胡闹厨房 · 料理人格测试》的网页试玩版。">
+<meta name="theme-color" content="#FAF4E6">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone" id="app">
+
+  <!-- 首页 -->
+  <section class="screen home on" id="screen-home">
+    <img class="home-bg" src="../assets/kitchen/bg03.jpg" alt="">
+    <div class="home-veil"></div>
+    <div class="home-inner">
+      <p class="tag">COURSE WORK · 2026</p>
+      <h1>胡闹厨房<em>料理人格测试</em></h1>
+      <p class="lede">16 道厨房里的二选一，测出你在灶台前的动物人格。每个结果都落到一只动物、一间厨房、一张可以保存的海报。</p>
+      <button class="cta" id="btn-start">开始测试 · 16 题</button>
+      <p class="meta">16 QUESTIONS · 4 AXES · 16 PERSONAS</p>
+      <div class="roster" id="roster"></div>
+      <div class="home-foot">
+        <button class="link" id="btn-history">最近结果</button>
+        <span class="dotsep">·</span>
+        <button class="link" id="btn-about">这是什么</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 答题 -->
+  <section class="screen quiz" id="screen-quiz">
+    <img class="quiz-bg" src="../assets/kitchen/bg09.jpg" alt="">
+    <div class="quiz-veil"></div>
+    <div class="quiz-inner">
+      <header class="quiz-head">
+        <span id="q-part">食材抉择篇</span>
+        <span id="q-count">01 / 16</span>
+      </header>
+      <div class="bar"><i id="q-bar"></i></div>
+      <p class="q-dim" id="q-dim">食材相性</p>
+      <h2 id="q-title">题目</h2>
+      <p class="hint">没有正确答案，选更接近你第一反应的那一个。</p>
+      <div class="options" id="q-options"></div>
+      <footer class="quiz-foot">
+        <button class="ghost" id="btn-prev">上一题</button>
+        <button class="ghost ghost-quiet" id="btn-quit">退出</button>
+      </footer>
+    </div>
+  </section>
+
+  <!-- 结果 -->
+  <section class="screen result" id="screen-result">
+    <img class="result-kitchen" id="r-kitchen" src="../assets/kitchen/bg01.jpg" alt="">
+    <div class="result-veil"></div>
+    <div class="result-inner">
+      <p class="tag" id="r-code">CPHS · 4 / 4 / 4 / 4</p>
+      <img class="result-char" id="r-image" src="../assets/results/CPHS.png" alt="">
+      <h2 id="r-name">洁癖实验室助理</h2>
+      <p class="en" id="r-en">The Lab Assistant</p>
+      <p class="animal" id="r-animal"></p>
+      <ul class="tags" id="r-tags"></ul>
+      <p class="comment" id="r-comment"></p>
+      <div class="dims" id="r-dims"></div>
+      <p class="recipe" id="r-recipe"></p>
+      <div class="pair">
+        <div><span>天生拍档</span><b id="r-partner"></b></div>
+        <div><span>厨房克星</span><b id="r-counter"></b></div>
+      </div>
+      <div class="actions">
+        <button class="cta small" id="btn-poster">生成海报</button>
+        <button class="ghost" id="btn-copy">复制文案</button>
+        <button class="ghost" id="btn-again">再测一次</button>
+      </div>
+      <p class="foot-note">网页试玩版，与微信小程序共用同一套题库与 16 型文案。</p>
+    </div>
+  </section>
+
+  <!-- 弹层：海报 / 关于 / 历史 -->
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-body" id="sheet-body"></div>
+    <button class="sheet-close" id="sheet-close">关闭</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
